@@ -10,7 +10,7 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
 
     @record.author = current_user
-    @record.owner_id = current_user
+    @record.owner_id = current_user.id
     if @record.save
       redirect_to records_path
     else
