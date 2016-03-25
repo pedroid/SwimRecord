@@ -2,44 +2,13 @@
 
 
   <div class="group">
-<%= f.input :owner_id %>
-    <!--
-    <%= f.label("項目") %>
-    <%= f.text_field :program_id %>
-  -->
-  <%= f.input :program_id %>
-  </div>
-
-  <div class="group">
-<!--
-    <%= f.label("距離") %>
-    <%= f.text_area :distance %>
-  -->
-  <%= f.input :distance %>
-  </div>
-
-  <div class="group">
-    <!--
-    <%= f.label("性質") %>
-    <%= f.text_field :property_id %>
-  -->
-  <%= f.input :property_id %>
-  </div>
-
-  <div class="group">
-    <!--
-    <%= f.label("分鐘") %>
-    <%= f.text_field :minutes %>
-  -->
-  <%= f.input :minutes %>
-  </div>
-
-  <div class="group">
-    <!--
-    <%= f.label("秒數") %>
-    <%= f.text_field :seconds %>
-  -->
-  <%= f.input :seconds %>
+    <!--<%= f.input :program_id %>-->
+    <%= f.input :program_id, :collection => [["freestyle",1],["breaststroke",2],["backstroke",3],["butterfly",4]]%>
+    <%= f.input :owner_id %>
+    <%= f.input :distance %>
+    <%= f.input :property_id %>
+    <%= f.input :minutes %>
+    <%= f.input :seconds %>
   </div>
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
