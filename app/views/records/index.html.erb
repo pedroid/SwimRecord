@@ -11,6 +11,7 @@
     <td>time</td>
     <td>uploader(debug)</td>
     <td>record owner</td>
+    <td>date(mm/dd)</td>
   </tr>
 </thead>
   <% @records.each do |record| %>
@@ -22,8 +23,9 @@
   <td><%= record.minutes.to_s<< '"'<<record.seconds.to_s %></td>
   <td><%= user_id_to_ascii_txt(record.user_id)  %></td>
   <td><%= user_id_to_ascii_txt(record.owner_id)  %></td>
+  <td><%= record.month.to_s<<'/'<<record.date.to_s %></td>
 </tr>
 
   <% end %>
-  
+
 </table>
