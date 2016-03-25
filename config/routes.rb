@@ -8,6 +8,7 @@ Rails.application.routes.draw do
  namespace :admin do
 	resources :records
  end
+ resources :records
  root 'pages#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

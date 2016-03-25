@@ -9,7 +9,7 @@ class Admin::RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
-
+    @record.author = current_user
     if @record.save
       redirect_to admin_records_path
     else
