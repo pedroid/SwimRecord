@@ -35,4 +35,22 @@ module RecordsHelper
       end
     end
   end
+
+  def distance_id_to_ascii_txt(distance_id)
+    case distance_id
+    when 1
+      return "50m"
+    when 2
+      return "100m"
+    when 3
+      return "200m"
+    when 4
+      return "400m"
+    when 5
+      return "800m"
+    when 6
+      return "1000m"
+    else return "others"
+    end
+  end
 end

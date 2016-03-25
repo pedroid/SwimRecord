@@ -17,7 +17,7 @@
 <tr>
   <td><%= record.id  %></td>
   <td><%= program_id_to_ascii_txt(record.program_id)  %></td>
-  <td><%= record.distance  %></td>
+  <td><%= distance_id_to_ascii_txt(record.distance)  %></td>
   <td><%= property_id_to_ascii_txt(record.property_id)  %></td>
   <td><%= record.minutes.to_s<< '"'<<record.seconds.to_s %></td>
   <td><%= user_id_to_ascii_txt(record.user_id)  %></td>

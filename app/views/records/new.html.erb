@@ -3,9 +3,9 @@
 
   <div class="group">
     <!--<%= f.input :program_id %>-->
-    <%= f.input :program_id, :collection => [["freestyle",1],["breaststroke",2],["backstroke",3],["butterfly",4]]%>
-    <%= f.input :distance %>
-    <%= f.input :property_id %>
+    <%= f.input :program_id, :collection => [["freestyle",1],["breaststroke",2],["backstroke",3],["butterfly",4]], :selected=>1%>
+    <%= f.input :distance, :collection=> [["52m",1],["100m",2],["200m",3],["400m",4],["800m",5],["1000m",6]], :selected=>4%>
+    <%= f.input :property_id, :collection=>[["self_training",1],["contest",2]],:selected =>1%>
     <%= f.input :minutes %>
     <%= f.input :seconds %>
   </div>
