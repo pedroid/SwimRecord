@@ -1,0 +1,14 @@
+<%= simple_form_for [@record] do |f| %>
+
+
+  <div class="group">
+    <%= f.input :program_id %>
+    <%= f.input :distance %>
+    <%= f.input :property_id %>
+    <%= f.input :minutes %>
+    <%= f.input :seconds %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>

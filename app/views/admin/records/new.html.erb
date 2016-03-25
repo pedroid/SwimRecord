@@ -1,28 +1,45 @@
-<%= form_for [:admin, @record] do |f| %>
+<%= simple_form_for [:admin, @record] do |f| %>
+
 
   <div class="group">
+<%= f.input :owner_id %>
+    <!--
     <%= f.label("項目") %>
     <%= f.text_field :program_id %>
+  -->
+  <%= f.input :program_id %>
   </div>
 
   <div class="group">
+<!--
     <%= f.label("距離") %>
     <%= f.text_area :distance %>
+  -->
+  <%= f.input :distance %>
   </div>
 
   <div class="group">
+    <!--
     <%= f.label("性質") %>
     <%= f.text_field :property_id %>
+  -->
+  <%= f.input :property_id %>
   </div>
 
   <div class="group">
+    <!--
     <%= f.label("分鐘") %>
     <%= f.text_field :minutes %>
+  -->
+  <%= f.input :minutes %>
   </div>
 
   <div class="group">
+    <!--
     <%= f.label("秒數") %>
     <%= f.text_field :seconds %>
+  -->
+  <%= f.input :seconds %>
   </div>
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
