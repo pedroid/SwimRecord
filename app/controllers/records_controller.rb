@@ -23,6 +23,6 @@ class RecordsController < ApplicationController
 
   end
   def record_params
-    params.require(:record).permit(:owner_id, :program_id, :distance, :property_id, :minutes, :seconds, :month, :date)
+    params.require(:record).permit(:owner_id, :program_id, :distance, :property_id, :minutes, :seconds, :month, :date, :year)
   end
 end

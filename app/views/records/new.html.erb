@@ -8,8 +8,9 @@
     <%= f.input :property_id, :collection=>[["self_training",1],["contest",2]],:selected =>1%>
     <%= f.input :minutes %>
     <%= f.input :seconds %>
-    <%= f.input :month %>
-    <%= f.input :date %>
+    <%= f.input :month, input_html:{value: f.object.month || Time.new.month}%>
+    <%= f.input :date , input_html:{value: f.object.date || Time.new.day}%>
+    <%= f.input :year , input_html:{value: f.object.year || Time.new.year}%>
   </div>
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
