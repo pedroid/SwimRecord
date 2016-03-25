@@ -25,7 +25,10 @@ module RecordsHelper
     end
   end
 
-  def uploader_to_ascii_txt(user_id)
+  def user_id_to_ascii_txt(user_id)
+    if user_id>@users.size
+      return "error:user_id>@users.size"
+    end
     @users.each do |user|
       if user.id == user_id
         return user.name

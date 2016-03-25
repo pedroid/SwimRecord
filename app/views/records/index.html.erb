@@ -22,8 +22,8 @@
   <td><%= property_id_to_ascii_txt(record.property_id)  %></td>
   <td><%= record.minutes  %></td>
   <td><%= record.seconds  %></td>
-  <td><%= uploader_to_ascii_txt(record.user_id)  %></td>
-  <td><%= record.owner_id  %></td>
+  <td><%= user_id_to_ascii_txt(record.user_id)  %></td>
+  <td><%= user_id_to_ascii_txt(record.owner_id)  %></td>
 </tr>
 
   <% end %>
