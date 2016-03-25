@@ -1,0 +1,30 @@
+<%= form_for [:admin, @record] do |f| %>
+
+  <div class="group">
+    <%= f.label("項目") %>
+    <%= f.text_field :program_id %>
+  </div>
+
+  <div class="group">
+    <%= f.label("距離") %>
+    <%= f.text_area :distance %>
+  </div>
+
+  <div class="group">
+    <%= f.label("性質") %>
+    <%= f.text_field :property_id %>
+  </div>
+
+  <div class="group">
+    <%= f.label("分鐘") %>
+    <%= f.text_field :minutes %>
+  </div>
+
+  <div class="group">
+    <%= f.label("秒數") %>
+    <%= f.text_field :seconds %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>
