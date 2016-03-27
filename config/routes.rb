@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'records/import'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -6,9 +8,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
  namespace :admin do
-	resources :records
+  resources :records do
+	  collection {post:import}
+
+	end
  end
- resources :records
+
  root 'pages#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

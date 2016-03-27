@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class RecordsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get import" do
+    get :import
+    assert_response :success
+  end
+
 end
