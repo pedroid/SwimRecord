@@ -1,0 +1,28 @@
+<div class="group">
+  <%= link_to("New User Story", new_userstory_path, class: "btn btn-primary pull-right") %>
+</div>
+<div>
+
+	<table class="table">
+   <thead>
+     <tr>
+       <th>user story</th>
+       <th colspan="2"></th>
+     </tr>
+   </thead>
+   <tbody>
+     <% @userstories.each do |userstory| %>
+       <tr>
+         <td><%= userstory.description %></td>
+         <td>
+           <%= link_to("Edit", edit_userstory_path(userstory),
+                       class: "btn btn-default btn-xs")%>
+           <%= link_to("Delete", userstory_path(userstory),
+                       class: "btn btn-default btn-xs ", method: :delete,
+                       data: { confirm: "Are you sure?" } )%>
+         </td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+</div>

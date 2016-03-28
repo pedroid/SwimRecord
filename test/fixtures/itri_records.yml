@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  program_id: 1
+  distance_id: 1
+  property_id: 1
+  minutes: 1
+  seconds: 1
+  owner_id: 1
+  year: 1
+
+two:
+  program_id: 1
+  distance_id: 1
+  property_id: 1
+  minutes: 1
+  seconds: 1
+  owner_id: 1
+  year: 1

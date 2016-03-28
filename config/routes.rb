@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'records/import'
+  resources :userstories
+  resources :itri_records
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,16 @@
+<%= simple_form_for [@itri_record] do |f| %>
+
+
+  <div class="group">
+    <!--<%= f.input :program_id %>-->
+    <%= f.input :program_id, :collection => [["freestyle",1],["breaststroke",2],["backstroke",3],["butterfly",4]]%>
+    <%= f.input :owner_id %>
+    <%= f.input :distance_id %>
+    <%= f.input :property_id %>
+    <%= f.input :minutes %>
+    <%= f.input :seconds %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>
