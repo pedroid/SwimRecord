@@ -14,8 +14,22 @@ class ItriRecordsController < ApplicationController
       render :new
     end
   end
+  def show
+    if valid_page?
+      render params[:id]
+    else
+      render file:"public/404.html", status: :not_found
+    end
+  end
+  def import
+    Record.import(params[:file])
+    redirect_to itri_records_path
+  end
   private
   def itri_record_params
     params.require(:itri_record).permit(:owner_id, :program_id, :distance_id, :property_id, :minutes, :seconds, :month, :date, :year)
+  end
+  def valid_page?
+    File.exist?(Pathname.new(Rails.root + "app/views/itri_records/#{params[:id]}.html.erb"))
   end
 end
