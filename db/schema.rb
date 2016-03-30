@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328162457) do
+ActiveRecord::Schema.define(version: 20160330225636) do
 
   create_table "atheletes", force: :cascade do |t|
     t.string   "name"
@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20160328162457) do
     t.integer  "seconds"
     t.integer  "owner_id"
     t.integer  "year"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "swim_item_id"
+    t.integer  "swim_distance_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -51,6 +53,18 @@ ActiveRecord::Schema.define(version: 20160328162457) do
     t.integer  "month"
     t.integer  "date"
     t.integer  "year"
+  end
+
+  create_table "swim_distances", force: :cascade do |t|
+    t.integer  "distance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "swim_items", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

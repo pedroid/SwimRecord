@@ -1,0 +1,3 @@
+program_id,distance,property_id,minutes,seconds,user_id,owner_id,month,date,year
+1,1,1,2,2,1,1,3,22,2014
+2,,,,,,,,,

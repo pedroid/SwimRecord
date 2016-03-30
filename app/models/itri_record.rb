@@ -1,7 +1,8 @@
 class ItriRecord < ActiveRecord::Base
 	belongs_to :athelete, class_name: "Athelete", foreign_key: :owner_id
-	belongs_to :user, class_name: "User", foreign_key: :user_id
-
+	belongs_to :user, class_name: "User"
+	has_one :swim_item, class_name:"SwimItem"
+  has_one :swim_distance, class_name:"SwimDistance", foreign_key: :distance_id
 	require 'csv'
 	def self.import(file)
 		CSV.foreach(file.path, headers: true) do |row|
