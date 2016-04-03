@@ -6,6 +6,10 @@ class ItriRecordsController < ApplicationController
   end
   def new
     @itri_record = ItriRecord.new
+    @swim_items = SwimItem.all
+    @swim_distances = SwimDistance.all
+    @atheletes = Athelete.all
+    @contests = Contest.all
   end
   def create
     @itri_record = ItriRecord.new(itri_record_params)
@@ -28,8 +32,9 @@ class ItriRecordsController < ApplicationController
   end
   private
   def itri_record_params
-    params.require(:itri_record).permit(:owner_id, :program_id, :distance_id, :property_id, :minutes, :seconds, :month, :date, :year, :swim_item_id)
+    params.require(:itri_record).permit(:owner_id, :swim_item_id, :distance_id, :contest_id, :minutes, :seconds, :month, :date, :year)
   end
+
   def valid_page?
     File.exist?(Pathname.new(Rails.root + "app/views/itri_records/#{params[:id]}.html.erb"))
   end

@@ -3,11 +3,11 @@
 
   <div class="group">
     <!--<%= f.input :program_id %>-->
-    <%= f.input :program_id, :collection => [["freestyle",1],["breaststroke",2],["backstroke",3],["butterfly",4]]%>
-    <%= f.input :owner_id %>
-    <%= f.input :swim_item_id %>
-    <%= f.input :distance_id %>
-    <%= f.input :property_id %>
+
+    <%= f.input :owner_id, :collection => get_record_owner_collection %>
+    <%= f.input :swim_item_id, :collection => get_swim_item_collection%>
+    <%= f.input :distance_id, :collection => get_distance_collection%>
+    <%= f.input :contest_id, :collection => get_contest_collection %>
     <%= f.input :minutes %>
     <%= f.input :seconds %>
     <%= f.input :year %>

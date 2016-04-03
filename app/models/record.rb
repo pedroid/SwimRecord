@@ -1,7 +1,9 @@
 class Record < ActiveRecord::Base
 	belongs_to :author, class_name: "User", foreign_key: :user_id
-
-  require 'csv'	
+	belongs_to :swim_item, class_name:"SwimItem"
+  belongs_to :swim_distance, class_name:"SwimDistance", foreign_key: :distance_id
+	belongs_to :contest, class_name:"Contest"
+  require 'csv'
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
 

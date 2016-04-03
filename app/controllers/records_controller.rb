@@ -6,6 +6,10 @@ def index
 end
 def new
   @record = Record.new
+  @swim_items = SwimItem.all
+  @swim_distances = SwimDistance.all
+  @atheletes = Athelete.all
+  @contests = Contest.all
 end
 def create
   @record = Record.new(record_params)
@@ -23,11 +27,8 @@ def show
 
 end
 def record_params
-  params.require(:record).permit(:owner_id, :program_id, :distance, :property_id, :minutes, :seconds, :month, :date, :year)
+  params.require(:record).permit(:owner_id, :swim_item_id, :distance_id, :contest_id, :minutes, :seconds, :month, :date, :year)
 end
 
-def import
-  Record.import(params[:file])
-  redirect_to records_path
-end
+
 end

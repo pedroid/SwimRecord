@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402014236) do
+ActiveRecord::Schema.define(version: 20160403123421) do
 
   create_table "atheletes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "sex"
   end
 
   create_table "books", force: :cascade do |t|
@@ -43,22 +44,23 @@ ActiveRecord::Schema.define(version: 20160402014236) do
     t.datetime "updated_at",   null: false
     t.integer  "swim_item_id"
     t.integer  "contest_id"
-    t.boolean  "sex"
   end
 
   create_table "records", force: :cascade do |t|
     t.integer  "program_id"
-    t.integer  "distance"
+    t.integer  "distance_id"
     t.integer  "property_id"
     t.integer  "minutes"
     t.integer  "seconds"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "owner_id"
     t.integer  "month"
     t.integer  "date"
     t.integer  "year"
+    t.integer  "swim_item_id"
+    t.integer  "contest_id"
   end
 
   create_table "swim_distances", force: :cascade do |t|
