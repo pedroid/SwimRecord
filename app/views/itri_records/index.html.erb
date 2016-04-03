@@ -5,28 +5,35 @@
 <thead>
   <tr>
     <td>id</td>
-    <td>項目</td>
-    <td>距離</td>
-    <td>性質</td>
-    <td>分</td>
-    <td>秒</td>
-    <td>保持者</td>
+    <td>Item</td>
+    <td>Distance(meters)</td>
+    <td>record(mm"ss)</td>
+    <td>owner</td>
+    <td>year</td>
+    <td>contest</td>
+    <td>sex</td>
   </tr>
 </thead>
   <% @itri_records.each do |record| %>
 <tr>
   <td><%= record.id  %></td>
-  <td><%= @swim_items.find(record.program_id).name  %></td>
-  <td><% if record.distance_id < @swim_distances.size %>
-      <%= #@swim_distances.find(record.distance_id).distance
-      record.distance_id %>
+  <td><%= @swim_items.find(record.program_id).name %></td>
+  <td><% if record.distance_id <= @swim_distances.size %>
+      <%= record.swim_distance.distance%>
+
       <% end %>
     </td>
 
-  <td><%= record.property_id  %></td>
-  <td><%= record.minutes  %></td>
-  <td><%= record.seconds  %></td>
+  <td><%= record.minutes.to_s<<'"'<<record.seconds.to_s %></td>
   <td><%= record.owner_id  %></td>
+  <td><%= record.year %></td>
+  <td><%= record.contest.name%></td>
+  <td><% if record.sex %>
+         male
+        <% else %>
+         female 
+        <% end %>
+  </td>
 </tr>
 
   <% end %>
