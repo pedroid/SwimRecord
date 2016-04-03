@@ -4,7 +4,6 @@
 <table class="table table-hover">
 <thead>
   <tr>
-    <td>id</td>
     <td>Item</td>
     <td>Distance(meters)</td>
     <td>record(mm"ss)</td>
@@ -16,7 +15,6 @@
 </thead>
   <% @itri_records.each do |record| %>
 <tr>
-  <td><%= record.id  %></td>
   <td><%= record.swim_item.name %></td>
   <td><% if record.distance_id <= @swim_distances.size %>
       <%= record.swim_distance.distance%>

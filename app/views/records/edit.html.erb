@@ -1,0 +1,17 @@
+<%= simple_form_for [@record] do |f| %>
+
+
+  <div class="group">
+    <%= f.input :swim_item_id, :collection => get_swim_item_collection, :selected=>1%>
+    <%= f.input :distance_id, :collection=> get_distance_collection, :selected=>4%>
+    <%= f.input :contest_id, :collection=>get_contest_collection,:selected =>1%>
+    <%= f.input :minutes %>
+    <%= f.input :seconds %>
+    <%= f.input :month, input_html:{value: f.object.month || Time.new.month}%>
+    <%= f.input :date , input_html:{value: f.object.date || Time.new.day}%>
+    <%= f.input :year , input_html:{value: f.object.year || Time.new.year}%>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>
