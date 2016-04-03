@@ -6,25 +6,24 @@
 <thead>
   <tr>
     <td>id</td>
-    <td>項目</td>
-    <td>距離</td>
-    <td>性質</td>
-    <td>分</td>
-    <td>秒</td>
-    <td>上傳者</td>
-    <td>保持者</td>
+    <td>item</td>
+    <td>distance</td>
+    <td>property</td>
+    <td>time</td>
+    <td>user</td>
+    <td>date(mm/dd/yy)</td>
   </tr>
 </thead>
   <% @records.each do |record| %>
 <tr>
   <td><%= record.id  %></td>
-  <td><%= record.program_id  %></td>
-  <td><%= record.distance  %></td>
-  <td><%= record.property_id  %></td>
-  <td><%= record.minutes  %></td>
-  <td><%= record.seconds  %></td>
-  <td><%= record.user_id  %></td>
-  <td><%= record.owner_id  %></td>
+  <td><%= record.swim_item.name  %></td>
+  <td><%= record.swim_distance.distance %></td>
+  <td><%= record.contest.name  %></td>
+  <td><%= record.minutes.to_s<< '"'<<record.seconds.to_s %></td>
+  <td><%= record.author.name  %></td>
+  <td><%= record.month.to_s<<'/'<<record.date.to_s<<'/'<<record.year.to_s %></td>
+
 </tr>
 
   <% end %>

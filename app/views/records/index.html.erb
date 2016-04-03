@@ -9,8 +9,6 @@
     <td>distance</td>
     <td>property</td>
     <td>time</td>
-    <td>uploader(debug)</td>
-    <td>record owner</td>
     <td>date(mm/dd/yy)</td>
   </tr>
 </thead>
@@ -21,8 +19,6 @@
   <td><%= record.swim_distance.distance %></td>
   <td><%= record.contest.name  %></td>
   <td><%= record.minutes.to_s<< '"'<<record.seconds.to_s %></td>
-  <td><%= user_id_to_ascii_txt(record.user_id)  %></td>
-  <td><%= user_id_to_ascii_txt(record.owner_id)  %></td>
   <td><%= record.month.to_s<<'/'<<record.date.to_s<<'/'<<record.year.to_s %></td>
 
 </tr>

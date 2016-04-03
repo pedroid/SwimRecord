@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403123421) do
+ActiveRecord::Schema.define(version: 20160403124928) do
 
   create_table "atheletes", force: :cascade do |t|
     t.string   "name"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20160403123421) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer  "program_id"
     t.integer  "distance_id"
     t.integer  "property_id"
     t.integer  "minutes"

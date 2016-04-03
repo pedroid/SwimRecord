@@ -7,7 +7,7 @@
     <%= f.input :owner_id, :collection => get_record_owner_collection %>
     <%= f.input :swim_item_id, :collection => get_swim_item_collection%>
     <%= f.input :distance_id, :collection => get_distance_collection%>
-    <%= f.input :contest_id, :collection => get_contest_collection %>
+    <%= f.input :contest_id, :collection => get_contest_collection.drop(1) %>
     <%= f.input :minutes %>
     <%= f.input :seconds %>
     <%= f.input :year %>
