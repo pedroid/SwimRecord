@@ -42,6 +42,3 @@
 <% id=id-1 %>
 <% end %>
 <%= line_chart data ,{library: {hAxis: {title: "date"}, vAxis: {title: "seconds"}}}%>
-<%= content_tag "div", id: "records", data: {records: Record.limit(2)} do %>
-  Loading products...
-<% end %>

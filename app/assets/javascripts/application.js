@@ -15,6 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap/dropdown
-console.log('test');
-var datadump = ($('#trackers').data('trackers'))
-console.log(datadump)
+//= require jsapi
+//= require chartkick
