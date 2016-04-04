@@ -22,9 +22,7 @@ Rails.application.routes.draw do
     }
 
 	end
-  resources :swimmers
  end
- resources :swimmers
  root 'pages#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
