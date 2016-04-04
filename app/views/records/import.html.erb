@@ -1,2 +1,7 @@
-<h1>Records#import</h1>
-<p>Find me in app/views/records/import.html.erb</p>
+<div>
+<h3>Import a CSV File</h3>
+  <%= form_tag import_records_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>

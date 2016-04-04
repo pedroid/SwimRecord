@@ -7,6 +7,10 @@ def index
   @swim_distances = SwimDistance.all
 end
 
+def import
+  Record.import(params[:file])
+  redirect_to records_path
+end
 
 def new
   @record = Record.new
@@ -29,13 +33,17 @@ end
 
 def show
   @users = User.all
-  @records= current_user.records.all.order("updated_at DESC")
   @swim_items = SwimItem.all
   @swim_distances = SwimDistance.all
-  if valid_page?
-    render params[:id]
+  case params[:id]
+  when "import" then
+      render params[:id]
+  when "overall" then
+    @records= current_user.records.order("updated_at DESC")
+      render params[:id]
   else
-    render file:"public/404.html", status: :not_found
+    @record = Record.find(params[:id])
+    @records= current_user.records.where(swim_item:@record.swim_item).where(swim_distance:@record.swim_distance).order("updated_at DESC")
   end
 end
 
@@ -69,55 +77,5 @@ end
 def valid_page?
   File.exist?(Pathname.new(Rails.root + "app/views/records/#{params[:id]}.html.erb"))
 end
-def get_swim_item_collection
 
- swim_item_collection = []
- i=1
- @swim_items.each do |swim_item|
-   swim_item_collection << [swim_item.name, i]
-   i=i+1
- end
- return swim_item_collection
-end
-
-def get_record_owner_collection
-  record_owner_collection = []
-  i=1
-  @atheletes.each do |athelete|
-    record_owner_collection << [athelete.name,i]
-    i = i+1
-  end
-  return record_owner_collection
-end
-
-def get_swim_item_collection
-  swim_item_collection = []
-  i=1
-  @swim_items.each do |swim_item|
-    swim_item_collection << [swim_item.name,i]
-    i = i+1
-  end
-  return swim_item_collection
-end
-
-
-def get_distance_collection
-  distance_collection = []
-  i=1
-  @swim_distances.each do |swim_distance|
-    distance_collection << [swim_distance.distance,i]
-    i = i+1
-  end
-  return distance_collection
-end
-
-def get_contest_collection
-  contest_collection = []
-  i=1
-  @contests.each do |contest|
-    contest_collection << [contest.name,i]
-    i = i+1
-  end
-  return contest_collection
-end
 end

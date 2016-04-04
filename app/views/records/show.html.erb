@@ -33,3 +33,15 @@
 
 
 </table>
+<% data=[] %>
+<% id=@records.count %>
+<% record_rawdata = @records.pluck(:year, :month, :date, :minutes, :seconds) %>
+<% record_rawdata.each do |rawdata| %>
+<% rawdata_date = rawdata[0].to_s << '-' << rawdata[1].to_s << '-' << rawdata[2].to_s%>
+<% data << [rawdata_date, rawdata[3]*60+rawdata[4]] %>
+<% id=id-1 %>
+<% end %>
+<%= line_chart data ,{library: {hAxis: {title: "date"}, vAxis: {title: "seconds"}}}%>
+<%= content_tag "div", id: "records", data: {records: Record.limit(2)} do %>
+  Loading products...
+<% end %>

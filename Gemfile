@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem "highcharts-rails"
+gem "groupdate"
 gem "chartkick"
 gem "rails-i18n"
 gem "devise"
