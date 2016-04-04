@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem "chartkick"
 gem "rails-i18n"
 gem "devise"
 gem "simple_form"

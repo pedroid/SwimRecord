@@ -1,6 +1,6 @@
 class ItriRecordsController < ApplicationController
   def index
-    @itri_records = ItriRecord.all
+    @itri_records = ItriRecord.all.order("distance_id")
     @swim_items = SwimItem.all
     @swim_distances = SwimDistance.all
   end

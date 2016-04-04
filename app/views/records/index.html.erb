@@ -3,31 +3,33 @@
 </div>
 <table class="table table-hover">
 <thead>
-  <tr>
-    <td>item</td>
-    <td>distance</td>
-    <td>property</td>
-    <td>time</td>
-    <td>date(mm/dd/yy)</td>
-  </tr>
-</thead>
-  <% @records.each do |record| %>
 <tr>
-  <td><%= record.swim_item.name  %></td>
-  <td><%= record.swim_distance.distance %></td>
-  <td><%= record.contest.name  %></td>
-  <td><%= record.minutes.to_s<< '"'<<record.seconds.to_s %></td>
-  <td><%= record.month.to_s<<'/'<<record.date.to_s<<'/'<<record.year.to_s %></td>
-  <td>
-  <%= link_to("Edit", edit_record_path(record),
-                       class: "btn btn-default btn-xs")%>
-  <%= link_to("Delete", record_path(record),
-     class: "btn btn-default btn-xs ", method: :delete,
-     data: { confirm: "Are you sure?" } )%>
-  </td>
+<td>item/distance</td>
+<% @swim_distances.each do |swim_distance|%>
+<td><%=   swim_distance.distance %> </td>
+<%end %>
+</thead>
+<% @swim_items.each do |swim_item| %>
+<tr>
+  <td><%= swim_item.name %></td>
+<% @swim_distances.each do |swim_distance| %>
+<td>
+  <% filter_record = Record.where(swim_distance:swim_distance.id).where(swim_item:swim_item.id).last%>
+  <% if filter_record %>
+  <%= filter_record.minutes.to_s << '"'<< filter_record.seconds.to_s%>
+  <% else %>
+  N/A
+  <%end %>
+</td>
+
+
+<% end %>
 </tr>
-
-  <% end %>
-
-
+<% end %>
 </table>
+
+<%= scatter_chart Record.pluck(:id, :minutes)%>
+
+<%= content_tag "div", id: "records", data: {records: Record.limit(2)} do %>
+  Loading products...
+<% end %>

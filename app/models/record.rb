@@ -17,4 +17,5 @@ class Record < ActiveRecord::Base
       end # end if !record.nil?
     end # end CSV.foreach
   end # end self.import(file)
+
 end
