@@ -1,4 +1,4 @@
-program_id,distance,property_id,minutes,seconds,user_id,owner_id,month,date,year
-1,1,1,2,2,1,1,3,22,2016
-1,1,1,2,2,1,1,3,22,2015
-1,1,1,2,2,1,1,3,22,2014
+distance_id,property_id,minutes,seconds,user_id,owner_id,month,date,year,swim_item_id,contest_id
+1,1,2,2,1,1,3,22,2016,1,1
+1,1,2,2,1,1,3,22,2015,1,1
+1,1,2,2,1,1,3,22,2014,1,1

@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap/dropdown
+//= require bootstrap/bootstrap
 //= require jsapi
 //= require chartkick
