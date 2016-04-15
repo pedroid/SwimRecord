@@ -1,38 +1,31 @@
 <div class="group">
-  <%= link_to("New record", new_itri_record_path, class: "btn btn-primary pull-right") %>
+<%= link_to("athelete", itri_records_atheletes_path, class: "btn btn-primary pull-right") %>
+<%= link_to("overall itri record", overall_itri_records_path, class: "btn btn-primary pull-right") %>
+  <%= link_to("New itri record", new_itri_record_path, class: "btn btn-primary pull-right") %>
 </div>
 <table class="table table-hover">
 <thead>
-  <tr>
-    <td>Item</td>
-    <td>Distance(meters)</td>
-    <td>record(mm"ss)</td>
-    <td>owner</td>
-    <td>year</td>
-    <td>contest</td>
-    <td>sex</td>
-  </tr>
-</thead>
-  <% @itri_records.each do |record| %>
 <tr>
-  <td><%= record.swim_item.name %></td>
-  <td><% if record.distance_id <= @swim_distances.size %>
-      <%= record.swim_distance.distance%>
+<td>item/distance</td>
+<% @swim_distances.each do |swim_distance|%>
+<td><%=   swim_distance.distance %> </td>
+<%end %>
+</thead>
+<% @swim_items.each do |swim_item| %>
+<tr>
+  <td><%= swim_item.name %></td>
+<% @swim_distances.each do |swim_distance| %>
+<td>
+  <% filter_record = ItriRecord.where(swim_distance:swim_distance.id).where(swim_item:swim_item.id).last%>
+  <% if filter_record %>
+  <%= link_to filter_record.minutes.to_s << '"'<< filter_record.seconds.to_s<<' ('<< filter_record.athelete.name << ')', itri_record_path(filter_record.id)%>
+  <% else %>
+  N/A
+  <%end %>
+</td>
 
-      <% end %>
-    </td>
 
-  <td><%= record.minutes.to_s<<'"'<<record.seconds.to_s %></td>
-  <td><%= record.athelete.name  %></td>
-  <td><%= record.year %></td>
-  <td><%= record.contest.name%></td>
-  <td><% if record.athelete.sex %>
-         male
-        <% else %>
-         female
-        <% end %>
-  </td>
+<% end %>
 </tr>
-
-  <% end %>
+<% end %>
 </table>

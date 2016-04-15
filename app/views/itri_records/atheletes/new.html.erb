@@ -1,0 +1,13 @@
+<%= simple_form_for [:itri_records, @athelete] do |f| %>
+
+
+  <div class="group">
+
+    <%= f.input :name %>
+    <%= f.input :sex, :collection => [["male",1],["female",2]] %>
+
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>

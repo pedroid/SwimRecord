@@ -29,11 +29,9 @@ class ApplicationController < ActionController::Base
 end
 
  def get_record_owner_collection
-   record_owner_collection = []
-   i=1
+  record_owner_collection = []
    @atheletes.each do |athelete|
-     record_owner_collection << [athelete.name,i]
-     i = i+1
+     record_owner_collection << [athelete.name,athelete.id]
    end
    return record_owner_collection
  end
@@ -68,4 +66,6 @@ end
    end
    return contest_collection
  end
+
+
 end

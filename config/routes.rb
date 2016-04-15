@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   resources :userstories
 
+  namespace :itri_records do
+    resources :atheletes
+  end
+
  resources :itri_records do
-   collection{post :import}
+   collection{
+     post :import
+     post :overall
+   }
 
  end
 

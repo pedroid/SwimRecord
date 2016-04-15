@@ -1,0 +1,29 @@
+<h1>atheletes</h1>
+<div class="group">
+  <%= link_to("New Athelete", new_itri_records_athelete_path, class: "btn btn-primary pull-right") %>
+</div>
+
+<table class="table table-hover">
+<thead>
+  <tr>
+    <td>name</td>
+    <td>male/female</td>
+  </tr>
+</thead>
+  <% @atheletes.each do |athelete| %>
+<tr>
+  <td><%= athelete.name %></td>
+  <td><%= get_male_or_female(athelete.sex) %></td>
+  <td>
+  <%= link_to("Edit", edit_itri_records_athelete_path(athelete),
+                       class: "btn btn-default btn-xs")%>
+  <%= link_to("Delete", itri_records_athelete_path(athelete),
+     class: "btn btn-default btn-xs ", method: :delete,
+     data: { confirm: "Are you sure?" } )%>
+  </td>
+</tr>
+
+  <% end %>
+
+
+</table>
