@@ -4,7 +4,7 @@
   <div class="group">
     <!--<%= f.input :program_id %>-->
 
-    <%= f.input :owner_id, :collection => [[@atheletes.find(1).name,1],[@atheletes.find(4).name,4]] %>
+    <%= f.input :owner_id, :collection => get_record_owner_collection %>
     <%= f.input :swim_item_id, :collection => get_swim_item_collection%>
     <%= f.input :distance_id, :collection => get_distance_collection%>
     <%= f.input :contest_id, :collection => get_contest_collection.drop(1) %>

@@ -18,9 +18,7 @@ class ItriRecordsController < ApplicationController
     @atheletes = Athelete.all
     @contests = Contest.all
   end
-  def update
 
-  end
   def create
     @itri_record = ItriRecord.new(itri_record_params)
     if @itri_record.save
@@ -34,7 +32,7 @@ class ItriRecordsController < ApplicationController
     when "import" then
         render params[:id]
     when "overall" then
-      @itri_records= ItriRecord.order("updated_at DESC")
+      @itri_records= ItriRecord.order("minutes ASC").order("seconds ASC")
         render params[:id]
     else
       @itri_record = ItriRecord.find(params[:id])
@@ -42,7 +40,7 @@ class ItriRecordsController < ApplicationController
     end
   end
   def import
-    Record.import(params[:file])
+    ItriRecord.import(params[:file])
     redirect_to itri_records_path
   end
 
@@ -72,7 +70,7 @@ class ItriRecordsController < ApplicationController
 
   private
   def itri_record_params
-    params.require(:itri_record).permit(:owner_id, :swim_item_id, :distance_id, :contest_id, :minutes, :seconds, :month, :date, :year)
+    params.require(:itri_record).permit(:owner_id, :swim_item_id, :distance_id, :contest_id, :minutes, :seconds, :year)
   end
   def valid_page?
     File.exist?(Pathname.new(Rails.root + "app/views/itri_records/#{params[:id]}.html.erb"))

@@ -1,12 +1,15 @@
+<% if current_user %>
 <div class="group">
   <%= link_to("New User Story", new_userstory_path, class: "btn btn-primary pull-right") %>
 </div>
+<% end %>
 <div>
 
 	<table class="table">
    <thead>
      <tr>
        <th>user story</th>
+       <th>name </th>
        <th colspan="2"></th>
      </tr>
    </thead>
@@ -14,12 +17,15 @@
      <% @userstories.each do |userstory| %>
        <tr>
          <td><%= userstory.description %></td>
+         <td><%= userstory.user.name %></td>
          <td>
+           <% if userstory.editable_by?(current_user) %>
            <%= link_to("Edit", edit_userstory_path(userstory),
                        class: "btn btn-default btn-xs")%>
            <%= link_to("Delete", userstory_path(userstory),
                        class: "btn btn-default btn-xs ", method: :delete,
                        data: { confirm: "Are you sure?" } )%>
+                       <% end %>
          </td>
        </tr>
      <% end %>

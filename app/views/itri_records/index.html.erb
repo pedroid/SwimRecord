@@ -1,7 +1,13 @@
 <div class="group">
+<% if current_user %>
+<% if current_user.is_admin %>
 <%= link_to("athelete", itri_records_atheletes_path, class: "btn btn-primary pull-right") %>
 <%= link_to("overall itri record", overall_itri_records_path, class: "btn btn-primary pull-right") %>
-  <%= link_to("New itri record", new_itri_record_path, class: "btn btn-primary pull-right") %>
+<%= link_to("New itri record", new_itri_record_path, class: "btn btn-primary pull-right") %>
+
+<%= link_to("import batch itri record", import_itri_records_path, class: "btn btn-primary pull-right") %>
+<% end %>
+<% end %>
 </div>
 <table class="table table-hover">
 <thead>
@@ -16,9 +22,9 @@
   <td><%= swim_item.name %></td>
 <% @swim_distances.each do |swim_distance| %>
 <td>
-  <% filter_record = ItriRecord.where(swim_distance:swim_distance.id).where(swim_item:swim_item.id).last%>
+  <% filter_record = ItriRecord.order("minutes DESC").order("seconds DESC").where(swim_distance:swim_distance.id).where(swim_item:swim_item.id).last%>
   <% if filter_record %>
-  <%= link_to filter_record.minutes.to_s << '"'<< filter_record.seconds.to_s<<' ('<< filter_record.athelete.name << ')', itri_record_path(filter_record.id)%>
+  <%= link_to filter_record.minutes.to_s << '"'<< filter_record.seconds.to_s<<' ('<< filter_record.athelete.name << ',' << filter_record.year.to_s << ')', itri_record_path(filter_record.id)%>
   <% else %>
   N/A
   <%end %>

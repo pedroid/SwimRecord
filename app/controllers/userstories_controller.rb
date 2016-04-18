@@ -40,4 +40,6 @@ class UserstoriesController < ApplicationController
 	def userstory_params
 		params.require(:userstory).permit(:description)
 	end
+
+
 end

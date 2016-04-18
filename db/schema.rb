@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403124928) do
+ActiveRecord::Schema.define(version: 20160415235920) do
 
   create_table "atheletes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "sex"
+    t.integer  "unit_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -70,6 +71,12 @@ ActiveRecord::Schema.define(version: 20160403124928) do
 
   create_table "swim_items", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.text     "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
