@@ -5,6 +5,7 @@ def index
   @records= current_user.records.all.order("updated_at DESC")
   @swim_items = SwimItem.all
   @swim_distances = SwimDistance.all
+
 end
 
 def import
@@ -45,6 +46,7 @@ def show
     @record = Record.find(params[:id])
     @records= current_user.records.where(swim_item:@record.swim_item).where(swim_distance:@record.swim_distance).order("updated_at DESC")
   end
+
 end
 
 def update

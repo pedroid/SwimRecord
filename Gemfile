@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem "gon"
 gem "highcharts-rails"
 gem "groupdate"
 gem "chartkick"
