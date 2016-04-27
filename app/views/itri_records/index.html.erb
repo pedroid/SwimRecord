@@ -9,6 +9,7 @@
 <% end %>
 <% end %>
 </div>
+<h2>male</h2>
 <table class="table table-hover">
 <thead>
 <tr>
@@ -22,7 +23,34 @@
   <td><%= swim_item.name %></td>
 <% @swim_distances.each do |swim_distance| %>
 <td>
-  <% filter_record = ItriRecord.order("minutes DESC").order("seconds DESC").where(swim_distance:swim_distance.id).where(swim_item:swim_item.id).last%>
+  <% filter_record = @itri_records_male.order("minutes DESC").order("seconds DESC").where(swim_distance:swim_distance.id).where(swim_item:swim_item.id).last%>
+  <% if filter_record %>
+  <%= link_to filter_record.minutes.to_s << '"'<< filter_record.seconds.to_s<<' ('<< filter_record.athelete.name << ',' << filter_record.year.to_s << ')', itri_record_path(filter_record.id)%>
+  <% else %>
+  N/A
+  <%end %>
+</td>
+
+
+<% end %>
+</tr>
+<% end %>
+</table>
+<h2> female</h2>
+<table class="table table-hover">
+<thead>
+<tr>
+<td>item/distance</td>
+<% @swim_distances.each do |swim_distance|%>
+<td><%=   swim_distance.distance %> </td>
+<%end %>
+</thead>
+<% @swim_items.each do |swim_item| %>
+<tr>
+  <td><%= swim_item.name %></td>
+<% @swim_distances.each do |swim_distance| %>
+<td>
+  <% filter_record = @itri_records_female.order("minutes DESC").order("seconds DESC").where(swim_distance:swim_distance.id).where(swim_item:swim_item.id).last%>
   <% if filter_record %>
   <%= link_to filter_record.minutes.to_s << '"'<< filter_record.seconds.to_s<<' ('<< filter_record.athelete.name << ',' << filter_record.year.to_s << ')', itri_record_path(filter_record.id)%>
   <% else %>

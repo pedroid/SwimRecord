@@ -1,6 +1,7 @@
 class ItriRecordsController < ApplicationController
   def index
-    @itri_records = ItriRecord.all.order("distance_id")
+    @itri_records_male = ItriRecord.joins(:athelete).where(:atheletes=>{:sex=>true})
+    @itri_records_female = ItriRecord.joins(:athelete).where(:atheletes=>{:sex=>false})
     @swim_items = SwimItem.all
     @swim_distances = SwimDistance.all
   end
@@ -36,7 +37,7 @@ class ItriRecordsController < ApplicationController
         render params[:id]
     else
       @itri_record = ItriRecord.find(params[:id])
-      @itri_records= ItriRecord.where(swim_item:@itri_record.swim_item).where(swim_distance:@itri_record.swim_distance).order("updated_at DESC")
+      @itri_records= ItriRecord.joins(:athelete).where(:atheletes=>{:sex=>@itri_record.athelete.sex}).where(swim_item:@itri_record.swim_item).where(swim_distance:@itri_record.swim_distance).order("updated_at DESC")
     end
   end
   def import
@@ -75,4 +76,5 @@ class ItriRecordsController < ApplicationController
   def valid_page?
     File.exist?(Pathname.new(Rails.root + "app/views/itri_records/#{params[:id]}.html.erb"))
   end
+
 end

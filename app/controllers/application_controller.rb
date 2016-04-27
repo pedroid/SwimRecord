@@ -17,26 +17,14 @@ class ApplicationController < ActionController::Base
 	end
  end
 
- def get_swim_item_collection
-
-  swim_item_collection = []
-  i=1
-  @swim_items.each do |swim_item|
-    swim_item_collection << [swim_item.name, i]
-    i=i+1
-  end
-  return swim_item_collection
-end
 
  def get_record_owner_collection
-  record_owner_collection = []
-   @atheletes.each do |athelete|
-     record_owner_collection << [athelete.name,athelete.id]
-   end
+  record_owner_collection = [["test",1],["test2",2]]
+
    return record_owner_collection
  end
 
- def get_swim_item_collection
+ def get_swim_item_collection2
    swim_item_collection = []
    i=1
    @swim_items.each do |swim_item|
