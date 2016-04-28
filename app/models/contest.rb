@@ -1,3 +1,3 @@
 class Contest < ActiveRecord::Base
-  has_many :itri_record, class_name: "ItriRecord"
+  has_many :itri_records, class_name: "ItriRecord"
 end

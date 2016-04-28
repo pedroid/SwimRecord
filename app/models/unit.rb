@@ -1,3 +1,3 @@
 class Unit < ActiveRecord::Base
-  has_many :athelete
+  has_many :atheletes
 end
