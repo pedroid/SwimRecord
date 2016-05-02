@@ -12,6 +12,9 @@ gem 'rails', '4.2.2'
 # Use sqlite3 as the database for Active Record
 group :development, :test do 
 	gem 'sqlite3'
+	gem "capistrano","~> 3.4"
+	gem "capistrano-rvm"
+	gem "capistrano-rails"
 end
 
 group :production do
