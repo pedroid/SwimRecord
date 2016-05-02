@@ -19,7 +19,7 @@ end
 
 group :production do
 	#gem 'pg'
-	gem 'mysql2'
+	gem 'mysql2','~>0.3.18'
 	gem 'rails_12factor'
 end
 # Use SCSS for stylesheets
