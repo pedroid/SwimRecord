@@ -5,6 +5,7 @@
     <!--<%= f.input :program_id %>-->
 
     <%= f.input :owner_id, :collection => get_record_owner_collection %>
+    if the athelete is not in the list, press <%= link_to "here", itri_records_atheletes_path%> to add athelete.
     <%= f.input :swim_item_id, :collection => get_swim_item_collection%>
     <%= f.input :distance_id, :collection => get_distance_collection%>
     <%= f.input :contest_id, :collection => get_contest_collection.drop(1) %>

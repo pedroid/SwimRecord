@@ -2,10 +2,12 @@ class ItriRecords::AtheletesController < ApplicationController
 
   helper_method :get_male_or_female
   def index
-    @atheletes = Athelete.all
+    @atheletes_male = Athelete.where(:sex=>true)
+    @atheletes_female = Athelete.where(:sex=>false)
   end
   def new
     @athelete = Athelete.new
+    @units = Unit.all
   end
   def create
     @athelete = Athelete.new(athelete_params)
@@ -32,6 +34,7 @@ class ItriRecords::AtheletesController < ApplicationController
 
   def edit
     @athelete = Athelete.find(params[:id])
+    @units = Unit.all
   end
 
   def destroy
@@ -49,6 +52,6 @@ class ItriRecords::AtheletesController < ApplicationController
   end
   private
   def athelete_params
-    params.require(:athelete).permit(:name, :sex)
+    params.require(:athelete).permit(:name, :sex, :unit_id)
   end
 end

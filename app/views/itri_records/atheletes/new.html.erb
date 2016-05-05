@@ -5,7 +5,7 @@
 
     <%= f.input :name %>
     <%= f.input :sex, :collection => [["male",1],["female",2]] %>
-
+    <%= f.input :unit_id, :collection =>get_athelete_unit_collection %>
   </div>
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>

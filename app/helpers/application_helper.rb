@@ -8,6 +8,16 @@ module ApplicationHelper
     end
     return swim_item_collection
   end
+
+  def get_athelete_unit_collection
+    unit_collection = []
+    @units.each do |unit|
+        unit_collection << [unit.name, unit.id]
+    end
+
+    return unit_collection
+  end
+
   def get_record_owner_collection
     record_owner_collection = []
 
