@@ -5,8 +5,8 @@
     <%= f.input :swim_item_id, :collection => get_swim_item_collection, :selected=>1%>
     <%= f.input :distance_id, :collection=> get_distance_collection, :selected=>4%>
     <%= f.input :contest_id, :collection=>get_contest_collection,:selected =>1%>
-    <%= f.input :minutes %>
-    <%= f.input :seconds %>
+    <%= f.input :minutes , :input_html=>{:value=>@last_record.minutes}%>
+    <%= f.input :seconds , :input_html=>{:value=>@last_record.seconds}%>
     <%= f.input :month, input_html:{value: f.object.month || Time.new.month}%>
     <%= f.input :date , input_html:{value: f.object.date || Time.new.day}%>
     <%= f.input :year , input_html:{value: f.object.year || Time.new.year}%>

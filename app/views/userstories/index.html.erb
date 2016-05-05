@@ -8,16 +8,17 @@
 	<table class="table">
    <thead>
      <tr>
-       <th>user story</th>
-       <th>name </th>
+       <th>username</th>
+       <th>feedback </th>
        <th colspan="2"></th>
      </tr>
    </thead>
    <tbody>
      <% @userstories.each do |userstory| %>
        <tr>
-         <td><%= userstory.description %></td>
          <td><%= userstory.user.name %></td>
+         <td><%= userstory.description %></td>
+
          <td>
            <% if userstory.editable_by?(current_user) %>
            <%= link_to("Edit", edit_userstory_path(userstory),

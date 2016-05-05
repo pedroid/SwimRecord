@@ -11,6 +11,7 @@ class ItriRecordsController < ApplicationController
     @swim_distances = SwimDistance.all
     @atheletes = Athelete.all
     @contests = Contest.all
+    
   end
   def edit
     @itri_record = ItriRecord.new

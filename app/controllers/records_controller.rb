@@ -19,6 +19,7 @@ def new
   @swim_distances = SwimDistance.all
   @atheletes = Athelete.all
   @contests = Contest.all
+  @last_record = Record.last
 end
 def create
   @record = Record.new(record_params)
