@@ -11,7 +11,7 @@ class ItriRecordsController < ApplicationController
     @swim_distances = SwimDistance.all
     @atheletes = Athelete.all
     @contests = Contest.all
-    
+
   end
   def edit
     @itri_record = ItriRecord.new
@@ -30,6 +30,7 @@ class ItriRecordsController < ApplicationController
     end
   end
   def show
+    gon.itrirecords = ItriRecord.all
     case params[:id]
     when "import" then
         render params[:id]

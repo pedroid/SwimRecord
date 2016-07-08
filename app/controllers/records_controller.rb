@@ -5,7 +5,7 @@ def index
   @records= current_user.records.all.order("updated_at DESC")
   @swim_items = SwimItem.all
   @swim_distances = SwimDistance.all
-
+  gon.records = @records
 end
 
 def import
@@ -34,6 +34,7 @@ def create
 end
 
 def show
+  gon.itri_records = ItriRecord.all
   @users = User.all
   @swim_items = SwimItem.all
   @swim_distances = SwimDistance.all
